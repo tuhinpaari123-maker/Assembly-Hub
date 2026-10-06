@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assemblies — Our Apartment, Our Ideas, Our Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="logo">A</span><span>Assemblies</span></a>
+  <nav>
+    <a href="#events">Events</a><a href="#announcements">News</a><a href="#memories">Memories</a><a href="#ideas">Ideas</a>
+    <button class="small-btn" id="loginBtn">Login</button>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">OUR APARTMENT • OUR IDEAS • OUR COMMUNITY</p>
+    <h1>Small community.<br><span>Big ideas.</span></h1>
+    <p>Festivals, games, creativity and learning — planned together by the people who live here.</p>
+    <div class="hero-actions"><a class="btn" href="#events">See upcoming events</a><a class="text-btn" href="#ideas">Share an idea →</a></div>
+  </div>
+  <div class="hero-card"><div class="sun">✦</div><div class="hero-note"><b>Child-led</b><br>community activities</div><div class="doodles">🎨 🪔 🧩 🎉</div></div>
+</section>
+
+<section id="events" class="section"><div class="section-head"><div><p class="eyebrow">WHAT'S HAPPENING</p><h2>Upcoming events</h2></div><input id="search" class="search" placeholder="Search events…"></div>
+<div class="filters" id="filters"><button class="filter active" data-cat="all">All</button><button class="filter" data-cat="festival">Festivals</button><button class="filter" data-cat="competition">Competitions</button><button class="filter" data-cat="creative">Creative</button><button class="filter" data-cat="community">Community</button></div>
+<div id="eventsGrid" class="grid"></div></section>
+
+<section id="announcements" class="section alt"><div class="section-head"><div><p class="eyebrow">NOTICE BOARD</p><h2>Announcements</h2></div></div><div id="announcementsGrid" class="grid"></div></section>
+
+<section id="memories" class="section"><div class="section-head"><div><p class="eyebrow">MEMORY WALL</p><h2>Little moments, big memories</h2></div></div><div id="memoriesGrid" class="memory-grid"></div></section>
+
+<section id="ideas" class="section idea-section"><div><p class="eyebrow">YOUR VOICE MATTERS</p><h2>What should we do next?</h2><p>Suggest a festival, game, competition, workshop or anything else you'd love to see.</p></div>
+<form id="ideaForm" class="card form"><input name="name" placeholder="Your name"><input name="email" type="email" placeholder="Email (optional)"><textarea name="idea" required placeholder="My idea is…"></textarea><button class="btn">Send idea</button><span id="ideaMsg" class="msg"></span></form></section>
+
+<section id="admin" class="section admin hidden"><div class="section-head"><div><p class="eyebrow">ORGANIZER AREA</p><h2>Admin dashboard</h2></div><button id="logoutBtn" class="small-btn">Log out</button></div>
+<div class="admin-tabs"><button data-tab="content" class="tab active">Content</button><button data-tab="attendance" class="tab">Attendance</button><button data-tab="records" class="tab">Registrations & ideas</button></div>
+<div id="tab-content" class="tab-panel">
+<div class="admin-columns"><form id="eventForm" class="card form"><h3>Add event</h3><input name="title" required placeholder="Event title"><select name="category"><option>festival</option><option>competition</option><option>creative</option><option>community</option></select><input name="date" type="date" required><input name="time" type="time"><input name="location" placeholder="Location"><input name="capacity" type="number" min="1" placeholder="Capacity"><textarea name="description" placeholder="Description"></textarea><button class="btn">Create event</button></form>
+<form id="announcementForm" class="card form"><h3>Add announcement</h3><input name="title" required placeholder="Title"><textarea name="body" required placeholder="Announcement"></textarea><button class="btn">Publish</button><hr><h3>Upload memory photo</h3><input name="title" placeholder="Photo title"><input name="caption" placeholder="Caption"><input name="date" type="date"><input name="photo" type="file" accept="image/*" required><button class="btn" type="button" id="uploadBtn">Upload photo</button><span id="uploadMsg" class="msg"></span></form></div></div>
+<div id="tab-attendance" class="tab-panel hidden"><div class="card form"><h3>Walk-in attendance</h3><select id="walkEvent"></select><input id="walkFirst" placeholder="First name"><input id="walkLast" placeholder="Last name"><input id="walkNote" placeholder="Note (optional)"><button class="btn" id="walkBtn">Mark walk-in present</button><span id="walkMsg" class="msg"></span></div><div id="attendanceList" class="stack"></div></div>
+<div id="tab-records" class="tab-panel hidden"><div id="recordsList" class="stack"></div></div>
+</section>
+</main>
+
+<div id="loginModal" class="modal hidden"><div class="modal-card"><button class="close" id="closeLogin">×</button><p class="eyebrow">ASSEMBLIES LOGIN</p><h2>Welcome back</h2><form id="loginForm" class="form"><input name="username" placeholder="Username" required><input name="password" type="password" placeholder="Password" required><button class="btn">Log in</button><span id="loginMsg" class="msg"></span></form></div></div>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
